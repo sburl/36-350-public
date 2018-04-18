@@ -1,3 +1,7 @@
+# **2a.** Write a function `generate_data(n, p)` which returns a list with the following elements: 
+# `covariates` which is a n-by-p matrix of draws from the standard normal distribution, and `responses`
+# which is a vector of length n of draws from the standard normal.
+
 generate_data = function(n, p) {
   
   covariates = matrix(rnorm(n * p), nrow = n, ncol = p)
@@ -8,7 +12,7 @@ generate_data = function(n, p) {
   
 }
 
-# Write a function `model_select(covariates, responses, cutoff)` which fits the linear regression 
+# **2b** Write a function `model_select(covariates, responses, cutoff)` which fits the linear regression 
 # `responses ~ covariates` and retains only those covariates whose coefficient p-values are less 
 # than or equal to `cutoff`. Then fit another regression using only the retained covariates and 
 # return the p-values from this reduced model. If there are no retained covariates return an empty
@@ -27,5 +31,5 @@ model_select = function(covariates, responses, cutoff) {
   keep.vals = keep.coefs[,4]
   
   return (keep.vals)
-    
+
 }
